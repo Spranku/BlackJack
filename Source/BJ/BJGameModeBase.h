@@ -13,5 +13,12 @@ UCLASS()
 class BJ_API ABJGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintImplementableEvent)
+	void Action1_BP();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void Action2_BP();
 	
 };

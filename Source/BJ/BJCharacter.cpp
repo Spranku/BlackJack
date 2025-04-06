@@ -3,6 +3,8 @@
 
 #include "BJCharacter.h"
 #include "Camera/CameraComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "BJGameModeBase.h"
 #include "Components/CapsuleComponent.h"
 
 // Sets default values
@@ -22,6 +24,18 @@ ABJCharacter::ABJCharacter()
 void ABJCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	ABJGameModeBase* myGameMode = Cast<ABJGameModeBase>(UGameplayStatics::GetGameMode(this));
+	if (myGameMode)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Have GM"));
+		GameMode = myGameMode;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Don`t Have GM"));
+	}
+	
 	
 }
 
@@ -40,5 +54,35 @@ void ABJCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+
+	PlayerInputComponent->BindAction("Action1", IE_Pressed, this, &ABJCharacter::EnableActionOne);
+	PlayerInputComponent->BindAction("Action1", IE_Released, this, &ABJCharacter::DisableActionOne);
+
+	PlayerInputComponent->BindAction("Action2", IE_Pressed, this, &ABJCharacter::EnableActionTwo);
+	PlayerInputComponent->BindAction("Action2", IE_Released, this, &ABJCharacter::DisableActionTwo);
+}
+
+void ABJCharacter::EnableActionOne()
+{
+	if (GameMode)
+	{
+		GameMode->Action1_BP();
+	}
+}
+
+void ABJCharacter::DisableActionOne()
+{
+}
+
+void ABJCharacter::EnableActionTwo()
+{
+	if (GameMode)
+	{
+		GameMode->Action2_BP();
+	}
+}
+
+void ABJCharacter::DisableActionTwo()
+{
 }
 
