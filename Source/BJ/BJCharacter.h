@@ -18,6 +18,7 @@ public:
 	// Sets default values for this character's properties
 	ABJCharacter();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UCameraComponent* FirstPersonCameraComponent;
 
 protected:

@@ -18,6 +18,7 @@ ABJCharacter::ABJCharacter()
 	FirstPersonCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
 	FirstPersonCameraComponent->SetupAttachment(GetCapsuleComponent()); 
 	FirstPersonCameraComponent->bUsePawnControlRotation = true;
+	FirstPersonCameraComponent->SetFieldOfView(90.0f);
 }
 
 // Called when the game starts or when spawned
