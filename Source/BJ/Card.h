@@ -43,7 +43,7 @@ public:
 	UStaticMeshComponent* CardMesh;
 
 	// Динамический материал для изменения внешнего вида
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ExposeOnSpawn = true))
 	UMaterialInstanceDynamic* DynamicMaterial;
 
 	// Инициализация визуала
