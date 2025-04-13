@@ -48,6 +48,15 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Deck")
 	TSubclassOf<ACard> CardTemplate;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float PlayerOffset = 0.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float EnemyOffset = 0.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsFirst = true;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

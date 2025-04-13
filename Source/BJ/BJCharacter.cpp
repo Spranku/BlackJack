@@ -25,18 +25,6 @@ ABJCharacter::ABJCharacter()
 void ABJCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	ABJGameModeBase* myGameMode = Cast<ABJGameModeBase>(UGameplayStatics::GetGameMode(this));
-	if (myGameMode)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Have GM"));
-		GameMode = myGameMode;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Don`t Have GM"));
-	}
-	
 	
 }
 
@@ -65,10 +53,7 @@ void ABJCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void ABJCharacter::EnableActionOne()
 {
-	if (GameMode)
-	{
-		GameMode->Action1_BP();
-	}
+
 }
 
 void ABJCharacter::DisableActionOne()
@@ -77,10 +62,7 @@ void ABJCharacter::DisableActionOne()
 
 void ABJCharacter::EnableActionTwo()
 {
-	if (GameMode)
-	{
-		GameMode->Action2_BP();
-	}
+
 }
 
 void ABJCharacter::DisableActionTwo()

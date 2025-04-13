@@ -15,10 +15,27 @@ class BJ_API ABJGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(BlueprintImplementableEvent)
-	void Action1_BP();
+	UFUNCTION(BlueprintCallable)
+	void SumUpEnemyCards(int Cout);
 
-	UFUNCTION(BlueprintImplementableEvent)
-	void Action2_BP();
+	UFUNCTION(BlueprintCallable)
+	const int GetSumEnemyCards();
+
+protected:
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	int SumEnemyCards = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bEnemyCanMove = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bPlayerCanMove = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bPlayerSkips = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<int> ArrayOfEnemyCards;
+
 	
 };
