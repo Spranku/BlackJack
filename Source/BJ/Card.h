@@ -38,19 +38,17 @@ class BJ_API ACard : public AActor
 {
 	GENERATED_BODY()
 public:
-	// Компонент для отображения карты
+	// Mesh card
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	UStaticMeshComponent* CardMesh;
 
-	// Динамический материал для изменения внешнего вида
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ExposeOnSpawn = true))
 	UMaterialInstanceDynamic* DynamicMaterial;
 
-	// Инициализация визуала
 	UFUNCTION(BlueprintCallable)
 	void InitializeCardVisuals();
 
-	// Обновление внешнего вида согласно масти/рангу
+	// Update visual
 	UFUNCTION(BlueprintCallable)
 	void UpdateAppearance();
 

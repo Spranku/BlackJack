@@ -40,7 +40,7 @@ void ADeck::InitializeDeck()
 
     Cards.Empty();
 
-    // Создаем все комбинации мастей и достоинств
+    // Create all Suits and Ranks
     for (uint8 s = 0; s < static_cast<uint8>(ECardSuit::Spades) + 1; s++)
     {
         for (uint8 r = 0; r < static_cast<uint8>(ECardRank::King) + 1; r++)

@@ -18,22 +18,22 @@ public:
 	// Sets default values for this actor's properties
 	ADeck();
 
-	// Компонент для отображения колоды
+	// Mesh for visual cards
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* DeckMesh;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	USphereComponent* SphereComponent;
 
-	// Инициализирует колоду из 52 карт
+	// Init 52 cards
 	UFUNCTION(BlueprintCallable)
 	void InitializeDeck();
 
-	// Перетасовывает колоду
+	// Reload cards
 	UFUNCTION(BlueprintCallable)
 	void Shuffle();
 
-	// Вытягивает карту сверху колоды
+	// Get card from top
 	UFUNCTION(BlueprintCallable)
 	ACard* DrawCard();
 
@@ -44,7 +44,6 @@ protected:
 	UPROPERTY()
 	TArray<ACard*> Cards;
 
-	// Шаблон карты для создания экземпляров
 	UPROPERTY(EditDefaultsOnly, Category = "Deck")
 	TSubclassOf<ACard> CardTemplate;
 
